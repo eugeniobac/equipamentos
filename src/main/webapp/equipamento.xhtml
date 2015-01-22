@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:m="http://primefaces.org/mobile"
+	template="/template/ui.xhtml">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<ui:define name="body">
+	<p:panel>
+	   <h:outputText value="Equipamento" styleClass="header_pagina" />
+	   <br/><br/>
+		<h:form>	
+			<p:fieldset legend="Filtro">
+			   <h:panelGrid columns="2">
+				   <h:outputText value="Nome:" />
+				   <p:inputText value="#{equipamentoBean.entity.nome}"/>
+				   <h:outputText value="Número do Patrimônio:" />
+				   <p:inputText value="#{equipamentoBean.entity.numeroPatrimonio}"/>
+				   <h:panelGroup>
+					   <p:commandButton value="Filtrar" action="#{equipamentoBean.filter}" update=":#{p:component('tabela')}" />
+					   <p:spacer width="5"/>
+					   <p:commandButton value="Novo" action="#{equipamentoBean.reset}" oncomplete="PF('dlg').show()" update=":#{p:component('modalForm')}"/>
+				   </h:panelGroup>
+			   </h:panelGrid>
+			</p:fieldset>
+			   
+		   <p:dataTable id="tabela" var="equipamento" value="#{equipamentoBean.list}" emptyMessage="Nenhum Registro Encontrado">
+			    <p:column headerText="Nome">
+			        <h:outputText value="#{equipamento.nome}" />
+			    </p:column>
+			    
+			    <p:column headerText="Número do Patrimônio">
+			        <h:outputText value="#{equipamento.numeroPatrimonio}" />
+			    </p:column>
+			    
+			    <p:column headerText="Data de Aquisição">
+			        <h:outputText value="#{equipamento.dataAquisicao}" >
+			        	<f:convertDateTime pattern="dd/MM/yyyy" />
+			        </h:outputText>
+			    </p:column>
+			    
+			    <p:column headerText="Órgão">
+			        <h:outputText value="#{equipamento.orgao.nome}" />
+			    </p:column>
+			 
+			    <p:column exportable="false">
+					<f:facet name="header">
+						<h:outputText value="Controle" />
+					</f:facet>
+					<p:commandLink title="Editar" oncomplete="PF('dlg').show()" update=":#{p:component('modalForm')}">
+						<p:graphicImage value="/img/btn-editar.png"></p:graphicImage>
+						<f:setPropertyActionListener target="#{equipamentoBean.entity}" value="#{equipamento}" />
+					</p:commandLink>
+					<p:spacer width="5" />
+					<p:commandLink title="Excluir" onclick="PF('confirmation').show()">
+						<p:graphicImage value="/img/btn-excluir.png"></p:graphicImage>
+						<f:setPropertyActionListener target="#{equipamentoBean.entity}" value="#{equipamento}" />
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		
+		<h:form>
+			<p:dialog modal="true" id="modalForm" widgetVar="dlg" header="Cadastrar Equipamento" resizable="true">
+				<h:panelGrid columns="2">
+				   <h:outputText value="Nome:" />
+				   <p:inputText value="#{equipamentoBean.entity.nome}" required="true" requiredMessage="O campo nome é obrigatório"/>
+			
+				   <h:outputText value="Descrição:" />
+				   <p:inputText value="#{equipamentoBean.entity.descricao}" />
+			
+				   <h:outputText value="Quantidade:" />
+				   <p:inputText value="#{equipamentoBean.entity.quantidade}" />
+
+				   <h:outputText value="Número do patrimônio:" />
+				   <p:inputText value="#{equipamentoBean.entity.numeroPatrimonio}" required="true" requiredMessage="O campo número do patrimônio é obrigatório"/>
+				   
+				   <h:outputText value="Data Aquisição:" />
+				   <p:calendar id="mask" value="#{equipamentoBean.entity.dataAquisicao}" pattern="dd/MM/yyyy" mask="true" />
+				   
+				   <h:outputText value="Órgão:" />
+				   <p:selectOneMenu value="#{equipamentoBean.entity.orgao.id}">
+			   	   		<f:selectItems value="#{orgaoBean.findAll()}" var="var" itemValue="#{var.id}" itemLabel="#{var.nome} - #{var.sigla}" />
+				   </p:selectOneMenu>
+				   
+				   <h:panelGroup>
+					   <p:commandButton action="#{equipamentoBean.save}" value="Salvar" oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlg').hide()" update=":#{p:component('tabela')}"/>
+					   <p:spacer width="5"/>
+					   <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('dlg').hide()" update=":#{p:component('tabela')}"/>
+				   </h:panelGroup>
+			   </h:panelGrid>
+		   </p:dialog>
+	   </h:form>
+	   <h:form>
+			<p:confirmDialog message="Deletar entidade?" showEffect="fade" hideEffect="fade" header="Confirmar" severity="alert" widgetVar="confirmation" modal="true" closeOnEscape="true">
+				<p:commandButton value="Sim" oncomplete="PF('confirmation').hide()" actionListener="#{equipamentoBean.delete}" update=":#{p:component('tabela')}"/>
+				<p:commandButton value="Não" oncomplete="PF('confirmation').hide()"/>
+			</p:confirmDialog>
+		</h:form>
+	</p:panel>
+ 
+</ui:define>
+</ui:composition>

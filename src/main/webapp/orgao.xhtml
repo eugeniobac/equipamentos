@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:m="http://primefaces.org/mobile"
+	template="/template/ui.xhtml">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<ui:define name="body">
+	<p:panel>
+	   <h:outputText value="Órgão" styleClass="header_pagina" />
+	   <br/><br/>
+		<h:form>
+			<p:fieldset legend="Filtro">
+			   <h:panelGrid columns="2">
+				   <h:outputText value="Nome:" />
+				   <p:inputText value="#{orgaoBean.entity.nome}"/>
+				   <h:outputText value="Sigla:" />
+				   <p:inputText value="#{orgaoBean.entity.sigla}"/>
+				   <p:commandButton value="Filtrar" action="#{orgaoBean.filter}" update=":#{p:component('tabela')}" />
+				   <p:commandButton value="Novo" action="#{orgaoBean.reset}" oncomplete="PF('dlg').show()" update=":#{p:component('modalForm')}"/>
+			   </h:panelGrid>
+			</p:fieldset>
+			
+			<p:dataTable id="tabela" var="orgao" value="#{orgaoBean.list}" emptyMessage="Nenhum Registro Encontrado">
+			    <p:column headerText="Nome">
+			        <h:outputText value="#{orgao.nome}" />
+			    </p:column>
+			 
+			    <p:column headerText="Sigla">
+			        <h:outputText value="#{orgao.sigla}" />
+			    </p:column>
+			 
+			    <p:column exportable="false">
+					<f:facet name="header">
+						<h:outputText value="Controle" />
+					</f:facet>
+					<p:commandLink title="Editar" oncomplete="PF('dlg').show()" update=":#{p:component('modalForm')}">
+						<p:graphicImage value="/img/btn-editar.png"></p:graphicImage>
+						<f:setPropertyActionListener target="#{orgaoBean.entity}" value="#{orgao}" />
+					</p:commandLink>
+					<p:spacer width="5" />
+					<p:commandLink title="Excluir" onclick="PF('confirmation').show()">
+						<p:graphicImage value="/img/btn-excluir.png"></p:graphicImage>
+						<f:setPropertyActionListener target="#{orgaoBean.entity}" value="#{orgao}" />
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		<h:form>
+			<p:dialog modal="true" id="modalForm" widgetVar="dlg" header="Cadastrar Órgão" resizable="true">
+			<h:panelGrid columns="2">
+			   <h:outputText value="Nome:" />
+			   <p:inputText value="#{orgaoBean.entity.nome}" required="true" requiredMessage="O campo nome é obrigatório"/>
+		
+			   <h:outputText value="Sigla:" />
+			   <p:inputText value="#{orgaoBean.entity.sigla}" required="true" requiredMessage="O campo sigla é obrigatório" />
+			   
+			   <p:commandButton action="#{orgaoBean.save}" value="Salvar" oncomplete="if (args &amp;&amp; !args.validationFailed) PF('dlg').hide()" update=":#{p:component('tabela')}"/>
+			   <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('dlg').hide()" update=":#{p:component('tabela')}"/>
+		   </h:panelGrid>
+		   </p:dialog>
+		</h:form>
+		<h:form>
+			<p:confirmDialog message="Deletar entidade?" showEffect="fade" hideEffect="fade" header="Confirmar" severity="alert" widgetVar="confirmation" modal="true" closeOnEscape="true">
+				<p:commandButton value="Sim" oncomplete="PF('confirmation').hide()" actionListener="#{orgaoBean.delete}" update=":#{p:component('tabela')}"/>
+				<p:commandButton value="Não" oncomplete="PF('confirmation').hide()"/>
+			</p:confirmDialog>
+		</h:form>
+	</p:panel>
+ 
+</ui:define>
+</ui:composition>

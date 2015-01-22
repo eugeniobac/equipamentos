@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:m="http://primefaces.org/mobile"
+	template="/template/template_login.xhtml">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<ui:define name="body">
+		<div class="conteudoCentralLogin">
+			<div id="login">
+
+				<div id="txt-form-login">ACESSO AO SISTEMA</div>
+
+				<div id="form-login">
+					<h:form>
+						<p:panel>
+							<h:panelGrid columns="1">
+								<h:outputText value="Login: " />
+								<p:inputText styleClass="input-login" value="#{loginBean.usuario.login}"></p:inputText>
+								<h:outputText value="Senha: " />
+								<p:password styleClass="input-login" value="#{loginBean.usuario.senha}"></p:password>
+							</h:panelGrid>
+							<p:commandButton value="Entrar" action="#{loginBean.login}"></p:commandButton>
+						</p:panel>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

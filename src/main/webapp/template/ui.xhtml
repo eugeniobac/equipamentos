@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<ui:insert name="header">
+			<title>Equipamentos</title>
+		</ui:insert>
+		<h:outputScript library="javax.faces" name="jsf.js" target="head" />
+		<f:facet name="last">
+			<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/estilo.css" />
+		</f:facet>
+	</h:head>
+
+	<h:body>
+
+		<div id="wrap-login">
+
+			<div id="topo">
+				<div id="top-dir">
+					<h:form>
+						<h:outputText value="Bem Vindo, #{loginBean.usuario.nome}" />
+						<p:spacer width="10"></p:spacer>
+						<p:commandButton value="Sair" icon="ui-icon-extlink" action="#{loginBean.logout}" />
+					</h:form>
+				</div>
+			</div>
+
+			<ui:include src="/template/menu.xhtml" />
+			<p:growl id="msg" autoUpdate="true" showDetail="true" showSummary="false" widgetVar="growl" />
+			<ui:insert name="body">
+			</ui:insert>
+
+		</div>
+
+	</h:body>
+</f:view>
+</html>
