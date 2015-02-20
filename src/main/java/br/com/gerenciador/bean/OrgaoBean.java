@@ -18,7 +18,7 @@ public class OrgaoBean extends GenericBean<Orgao> {
 
 	public String create() {
 		reset();
-		list = findAll();
+		list = getAll();
 
 		return "orgao.xhtml?faces-redirect=true";
 	}

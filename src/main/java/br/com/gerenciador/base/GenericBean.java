@@ -31,7 +31,7 @@ public abstract class GenericBean<T> {
 
 	public void delete() {
 		getService().delete(getEntity());
-		setList(findAll());
+		setList(getAll());
 	}
 
 	public void deleteAll() {
@@ -40,7 +40,7 @@ public abstract class GenericBean<T> {
 
 	public void save() {
 		getService().save(getEntity());
-		setList(findAll());
+		setList(getAll());
 
 		MessageView.info(getSaveMessage());
 	}
@@ -49,7 +49,7 @@ public abstract class GenericBean<T> {
 		return "Entidade salva com sucesso!";
 	}
 
-	public List<T> findAll() {
+	public List<T> getAll() {
 		return getService().findAll();
 	}
 

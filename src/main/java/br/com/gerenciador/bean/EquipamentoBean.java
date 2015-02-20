@@ -21,7 +21,7 @@ public class EquipamentoBean extends GenericBean<Equipamento> {
 
 	public String create() {
 		reset();
-		list = findAll();
+		list = getAll();
 		return "equipamento.xhtml?faces-redirect=true";
 	}
 

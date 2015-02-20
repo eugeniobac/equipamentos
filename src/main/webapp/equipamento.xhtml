@@ -76,7 +76,7 @@
 				   
 				   <h:outputText value="Órgão:" />
 				   <p:selectOneMenu value="#{equipamentoBean.entity.orgao.id}">
-			   	   		<f:selectItems value="#{orgaoBean.findAll()}" var="var" itemValue="#{var.id}" itemLabel="#{var.nome} - #{var.sigla}" />
+			   	   		<f:selectItems value="#{orgaoBean.all}" var="var" itemValue="#{var.id}" itemLabel="#{var.nome} - #{var.sigla}" />
 				   </p:selectOneMenu>
 				   
 				   <h:panelGroup>

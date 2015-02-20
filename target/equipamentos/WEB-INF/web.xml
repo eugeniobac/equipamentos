@@ -49,4 +49,16 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    
+    <!-- Filter Login -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>br.com.gerenciador.filter.LoginFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
 </web-app>

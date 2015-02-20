@@ -20,7 +20,7 @@ public class UsuarioBean extends GenericBean<Usuario> {
 
 	public String create() {
 		reset();
-		list = findAll();
+		list = getAll();
 		return "usuario.xhtml?faces-redirect=true";
 	}
 
