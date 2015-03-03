@@ -1,0 +1,480 @@
+/**** GERAL ****/
+
+body{
+	padding: 0px;
+	margin: 0px;
+	font-family: sans-serif;
+    height: auto;
+    
+}
+
+input[type=text], input[type=password], select
+{
+	width: 450px;
+}
+
+.botao_pp { border-radius: 5px; }
+
+.input_small
+{
+	width: 70px !important;
+}
+
+.input_medio
+{
+	width: 120px !important;
+}
+
+.input_data input{
+	width: 120px !important;
+}
+
+.header_pagina
+{
+	color:red;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+
+.sem_borda {
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-width: 0px;
+	border-style: hidden;
+}
+
+
+.nao_recebido
+{
+	color: red;
+	font-weight: bold;
+}
+
+
+/**** LOGIN ****/
+
+#wrap-login {
+    background: linear-gradient(to bottom, #FFFFFF 50%, #a6b6e4 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    min-height: 100%;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#topo {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+    background-image: url("../imagens/bg-topo-linha.png");
+    background-repeat: repeat-x;
+    display: table;
+}
+
+#topo-esq {
+    background-image: url("../imagens/bg-topo-logo.png");
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    float: left;
+    height: 122px;
+    width: 512px;
+}
+
+#logo-mppa {
+    margin-left: 50px;
+    padding: 17px;
+}
+
+.conteudoCentralLogin {
+    display: table;
+    padding-bottom: 30px;
+    width: 900px;
+}
+
+#logo-gedoc {
+    float: left;
+    margin-top: 30px;
+    width: 401px;
+}
+
+#txt-form-login {
+    color: #04165c;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+#login {
+    float: right;
+}
+
+#form-login{
+	width:240px;
+	background-color: #04165c;
+    border-radius: 12px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    padding: 30px 30px 25px 30px;
+}
+
+#form-login td{
+	color:#ffffff !important;
+}
+
+
+.input-login{
+	width: 185px !important;
+	background: none repeat scroll 0 0 #FFFFFF !important;
+    border: medium none;
+    color: #000000 !important;
+    font-family: Arial,sans-serif;
+    font-size: 11px !important;
+    padding: 5px !important;
+    margin-bottom: 6px;
+}
+
+.input-login:HOVER, .input-login:FOCUS{
+	background: #FFFFFF !important;
+}
+
+.ui-widget-content{
+	background: none;
+	border: none;
+}
+
+.ui-widget-content td{
+	color: #575757;
+	vertical-align: top;
+}
+
+.label-login{
+	color: #ffffff;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.botao-login{
+	background-image: none !important;
+    background-color: #D2E6CA !important;
+    border: medium none !important;
+    color: #04165c !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding: 0px 0px !important;;
+}
+
+.botao-login:hover{
+    background-color: #B2CAA8 !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	border: 1px solid #ffffff;
+}
+
+.ui-editor{
+	background-color: #ffffff;
+	border: solid 1px #cccccc;
+	min-height: 180px;
+}
+
+
+
+/**** TEMPLATE PADRAO ****/
+
+#topo-logo-gedoc {
+    float: left;
+    margin-top: 20px;
+}
+
+#top-dir {
+    float: right;
+    margin-right: 15px;
+    margin-top: 40px;
+}
+
+#menu{
+	background-color: #BFBFBF;
+	width: 98%;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.ui-menu .ui-menuitem-link {
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-weight: bold;
+    line-height: 16px;
+    outline: medium none;
+    padding: 3px;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 12px !important;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+
+	text-decoration: underline;
+}
+
+.ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus, .ui-widget-header .ui-inputfield.ui-state-focus{
+	box-shadow:0 0 5px #3266b0, 0 2px 2px #8f8f8f inset;
+}
+
+.ui-tabs{
+	background-color: #eeeeee !important;
+	box-shadow:0px 0px 4px #333333;
+-webkit-border-radius:13.5px;
+-moz-border-radius:13.5px;
+-o-border-radius:13.5px;
+-ms-border-radius:13.5px;
+border-radius:13.5px;
+	padding-top: 25px;
+	padding-bottom: 30px; 
+	margin-top: 18px;
+}
+.ui-tabs-selected{
+	background-color: #cccccc !important;
+}
+
+.ui-tabs-left > .ui-tabs-nav{
+	margin-left: 12px;
+	padding: 0px;
+}
+
+.ui-tabs-left > .ui-tabs-panels{
+	float: left;
+	background-color: #cccccc;
+	border: solid 1px #ffffff;
+	border-left: none;
+	border-radius:0px 10px 10px 10px;
+	box-shadow: 4px 2px 2px #888888;
+}
+
+.ui-dialog{
+	width: 960px !important;
+	margin: 0 auto !important;
+}
+
+.ui-confirm-dialog{
+	width: auto !important;
+	background-color: #ffffff;
+}
+
+#painel-btns{
+	width: 100%;
+	background-color: #cccccc;
+	background-color: #eeeeee !important;
+	box-shadow:0px 0px 4px #333333;
+	border-radius:12px;
+}
+
+.painel-botoes{
+	padding: 6px 10px 6px 10px;
+}
+
+.ui-datatable-even{
+	background-color: #ffffff;
+}
+
+.ui-datatable-odd{
+	background-color: #dddddd;
+}
+
+ul{
+	overflow: visible !important;
+	height: auto !important;
+}
+
+.ui-widget-content ul{
+	background-color: #BFBFBF !important;
+}
+
+.ui-datepicker-title{
+	color: #ffffff;
+}
+
+.ui-datepicker{
+	background-color: #ffffff;
+	box-shadow:0px 0px 6px #222222;
+}
+
+.ui-menu-list ul{
+	min-width: 240px !important;
+}
+
+.ui-menuitem li:hover{
+	background-color: #cccccc !important;
+}
+
+.ui-widget-header{
+	background-image: none;
+	background-color: #04165c;
+}
+
+.ui-datatable .ui-datatable-header{
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px;
+}
+
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background-image: none;
+	/*background-color: #041143;
+	color: #ffffff;*/
+}
+
+
+.ui-fieldset legend{
+	font-size: 14px !important;
+	padding: 5px 10px 5px 10px !important;
+	background-color: #bbbbbb !important;
+	border: solid 1px #aaaaaa !important;
+}
+
+fieldset{
+	border: solid 1px #aaaaaa !important;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	background-color: #eeeeee !important;
+}
+
+textarea{
+	width: 100%;
+	text-decoration: none;
+	background-color: #ffffff;
+	border: solid 1px #aaaaaa !important;
+}
+
+button{
+	background-color: #041143 !important;
+	color: #ffffff !important;
+}
+
+button:HOVER{
+	background-color: #010a2d !important;
+	color: #ffffff !important;
+	text-decoration: underline !important;
+}
+
+.forms{
+	width: 99%;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{
+	opacity: 0.60;
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td{
+	border: solid 1px #aaaaaa;
+}
+
+.ui-state-error{
+    border: 1px solid #CD0A0A !important;
+}
+
+.ui-fieldset-content{
+	height: 100%;
+	display: table;
+	width: 100%;
+	position: static;
+}
+
+.ui-state-default input{
+	background-color: #ffffff !important;
+	color: #000000 !important;
+	font-size: 12px !important;
+}
+
+.ui-datatable tbody td{
+	/*background-color: #ffffff;*/
+	font-size: 12px !important;
+	color: #353535;
+}
+
+.tabela-trechos{
+	width: 100% !important;
+}
+
+.ui-editor iframe{
+	height: 150px !important;
+}
+
+.ui-datatable{
+	width: 100% !important;
+}
+
+.header_pagina{
+	color: #04165c;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.ui-dialog-content{
+	background-color: #ffffff !important;
+	font-size: 12px !important;
+}
+
+.ui-dialog-content td{
+	font-size: 12px !important;
+}
+
+.ui-dialog-footer{
+	background-color: #eeeeee !important;
+}
+
+.ui-dialog-titlebar{
+	color: #ffffff !important;
+}
+
+.ui-dialog-content input{
+	background-color: #cccccc !important;
+	color: #000000 !important;
+}
+
+.forms fieldset{
+	border: solid 1px #cccccc;
+}
+
+.forms legend{
+}
+
+.ui-fieldset-legend{
+	background-color: #555555;
+}
+
+.ui-selectonemenu-item{
+	font-size: 12px;
+}
+
+.ui-state-default span{
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.ui-state-default:hover {
+	text-decoration: none !important;
+}
+
+.ui-selectonemenu-trigger:HOVER{
+	background-color: #041143 !important;
+}
+
+.ui-widget-content:HOVER{
+	color: #000000 !important;
+}
+
+
